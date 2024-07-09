@@ -14,7 +14,7 @@ export class UserFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private http: HttpClient) {}
 
   /**
-   * @description: Creates a from froup and sets its variables and validations.
+   * @description: Creates a form group and sets its variables and validations.
    */
   ngOnInit(): void {
     this.userGroup = this.fb.group({
@@ -46,7 +46,7 @@ export class UserFormComponent implements OnInit {
           alert('User added successfully');
         },
         (error) => {
-          alert('An error occured while saving the user.');
+          alert('An error occurred while saving the user.');
         }
       );
     }

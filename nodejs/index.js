@@ -41,7 +41,7 @@ app.post("/users", async (req, res) => {
     console.error("Error inserting data into DB", err);
     return res
       .status(500)
-      .json({ message: "An Error occured while saving the user" });
+      .json({ message: "An Error occurred while saving the user" });
   }
 });
 
