@@ -1,0 +1,71 @@
+<form [formGroup]="userGroup" (ngSubmit)="onSubmit()">
+  <label>User name</label>
+  <input type="text" formControlName="name" />
+  <div
+    *ngIf="
+      userGroup.get('name')?.touched &&
+      userGroup.get('name')?.hasError('required')
+    "
+  >
+    <p style="color: red">Name is Required</p>
+  </div>
+  <div
+    *ngIf="
+      userGroup.get('name')?.touched &&
+      userGroup.get('name')?.hasError('minlength')
+    "
+  >
+    <p style="color: red">Length should be greater than 2</p>
+  </div>
+
+  <br />
+  <br />
+
+  <label>Date of birth</label>
+  <input type="date" formControlName="dob" />
+
+  <div
+    *ngIf="
+      userGroup.get('dob')?.touched &&
+      userGroup.get('dob')?.hasError('required')
+    "
+  >
+    <p style="color: red">Date of Birth is Required</p>
+  </div>
+
+  <br />
+  <br />
+
+  <label>Address</label>
+  <input type="text" formControlName="address" />
+
+  <div
+    *ngIf="
+      userGroup.get('address')?.touched &&
+      userGroup.get('address')?.hasError('pattern')
+    "
+  >
+    <p style="color: red">Address should not contain special characters</p>
+  </div>
+
+  <div
+    *ngIf="
+      userGroup.get('address')?.touched &&
+      userGroup.get('address')?.hasError('required')
+    "
+  >
+    <p style="color: red">Address is required</p>
+  </div>
+
+  <div
+    *ngIf="
+      userGroup.get('address')?.touched &&
+      userGroup.get('address')?.hasError('minlength')
+    "
+  >
+    <p style="color: red">Address should be atleast 5 characters long</p>
+  </div>
+  <br />
+  <br />
+  <button type="submit" [disabled]="userGroup.invalid">Submit</button>
+</form>
