@@ -1,5 +1,5 @@
 export interface UsersInterface {
-  name: String;
-  DOB: Date;
-  address: String;
+  name?: String;
+  dob?: Date;
+  address?: String;
 }
